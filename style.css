@@ -53,8 +53,6 @@ h1{
             transform-origin :100% 100%;
 }
 
-
-
 @keyframes heartbeat
 {
   0%
@@ -81,4 +79,12 @@ h1{
   {
     transform: scale( .75 );
   }
+}
+
+#container {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 60%;
+  height: 10px;
+  position: relative;
 }
