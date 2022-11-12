@@ -66,8 +66,8 @@ h1{
 }
 
 #progress {
+  margin-top: 10%;
   border-bottom: var(--white) solid 5px;
-  animation: progress 2s;
 }
 
 #start-button-container  {
@@ -85,15 +85,15 @@ h1{
   color: var(--white);
 }
 
-@keyframes progress
+@keyframes show
 {
   0%
   {
-    width: 0%;
+    opacity: 0%;
   }
   100%
   {
-    width: 100%;
+    opacity: 100%;
   }
 }
 

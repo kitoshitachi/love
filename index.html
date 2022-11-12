@@ -12,6 +12,8 @@
     <button id="start-button">Start</button>
   </div>
   <div id="progress" hidden></div>
+  <p id="quote" hidden></p>
+  
   <div id="main-content" hidden>
       <div id="heart">
         <audio controls autoplay loop hidden id="01">
@@ -26,8 +28,7 @@
 <script>
   var audio = document.getElementById("01");
   audio.volume = 0.4;
-  audio.play();
-  stream.getTracks().forEach(function (track) { track.stop(); });
+  audio.getTracks().forEach(function (track) { track.stop(); });
 </script>
 </html>
 
