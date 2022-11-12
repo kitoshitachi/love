@@ -1,10 +1,11 @@
+/* =================================== setting ================================= */
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: medium;
-
-  
+  font-size: xx-large;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
 }
 :root{
   --red: #c33;
@@ -22,6 +23,8 @@ h1{
   color: var(--white);
 }
 
+
+/* =============================== heart ==================================== */
 #heart {
     position: relative;
     width: 100px;
@@ -65,11 +68,7 @@ h1{
             transform-origin :100% 100%;
 }
 
-#progress {
-  border-bottom: var(--white) solid 5px;
-  animation: progress 2s;
-}
-
+/* ========================= button ==================================== */
 #start-button-container  {
   display: flex;
   justify-content: center;
@@ -80,11 +79,41 @@ h1{
 
 #start-button {
   padding: 1rem 2rem;
-  border: 1px solid var(--white);
+  border: 2px solid var(--white);
   background-color: var(--red);
   color: var(--white);
+  transition: 0.5s ease-in-out;
+}
+#start-button:hover{
+  background-color: var(--white);
+  color: var(--red);
 }
 
+#start-button:active{
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  color: var(--red);
+}
+/*================================== bar progress ========================== */
+
+#progress {
+  border-bottom: var(--white) solid 5px;
+  animation: progress 2s;
+}
+
+/* ============ heart shape ==============*/
+span{
+  position:absolute;
+  background: url(assets/heart.png);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  animation: fly_heart 2s linear infinite;
+}
+
+/* ========================================= animation ==================================*/
 @keyframes progress
 {
   0%
@@ -126,10 +155,15 @@ h1{
   }
 }
 
-#container {
-  background-color: #fff;
-  margin: 0 auto;
-  width: 60%;
-  height: 10px;
-  position: relative;
+
+@keyframes fly_heart{
+  0%
+  {
+    transform: translate(-50%, -50%);
+  }
+  100%
+  {
+    transform: translate(-50%, -100%);
+    opacity: 1;
+  }
 }
