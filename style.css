@@ -74,7 +74,6 @@ h1{
             transform-origin :100% 100%;
 }
 
-/* ========================= button ==================================== */
 #start-button-container  {
   display: flex;
   justify-content: center;
@@ -103,9 +102,9 @@ h1{
 /*================================== bar progress ========================== */
 
 #progress {
-  border-bottom: var(--white) solid 5px;
-  animation: progress 2s;
+  width: 100%;
   margin-top: 10%;
+  border-bottom: var(--white) solid 5px;
 }
 
 /* ============ heart shape ==============*/
