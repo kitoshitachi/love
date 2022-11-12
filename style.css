@@ -8,28 +8,32 @@
   font-weight: bolder;
 }
 :root{
-  --red: #c33;
-  --white: #fff;
+  --red: #c23350;
+  --white: #ffffff;
   --width_heart: 2rem;
   --height_heart: 3rem;
 }
 body{
-  background-color:#c33;
+  background-color:var(--red);
 }
-h1{
+
+h1,p{
   position: relative;
   font-size: xx-large;  
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
   text-align: center;
   color: var(--white);
+
 }
 
 #main-content{
   position: relative;
   padding-top: 4rem;
 }
-
+.skip_mouse_event{
+  pointer-events: none;
+}
 /* =============================== heart ==================================== */
 #heart {
     position: relative;
@@ -79,12 +83,14 @@ h1{
   justify-content: center;
   align-items: center;
   height: 100vh;
-  display: none;
+  /* display: none; */
 }
 
 #start-button {
+
   padding: 1rem 2rem;
   border: 2px solid var(--white);
+  border-radius: 25px;
   background-color: var(--red);
   color: var(--white);
   transition: 0.5s ease-in-out;
@@ -100,18 +106,24 @@ h1{
   color: var(--red);
 }
 /*================================== bar progress ========================== */
-
+#container_progress{
+  margin: 0 15%;
+  
+}
 #progress {
   width: 100%;
   margin-top: 10%;
-  border-bottom: var(--white) solid 5px;
-}
+  border: double 4px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(255, 58, 58),#ee1ddd);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+} 
 
 /* ============ heart shape ==============*/
 span{
   position:absolute;
   background: url(assets/heart.png);
-  pointer-events: none;
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;

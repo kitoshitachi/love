@@ -1,9 +1,9 @@
-"use strict";
-
+import config from "./text.json" assert{type: 'json'}
 
 document.addEventListener("mousemove",function(e){
     var body = document.querySelector("body");
     var heart = document.createElement("span");
+    // heart.style.position = "relative";
     var x = e.offsetX;
     var y = e.offsetY;
     heart.style.left = x + 'px';
@@ -19,11 +19,7 @@ document.addEventListener("mousemove",function(e){
     }, 1000)
 
 })
-const config = {
-  sentences: ["YOOOOOOOOO", "LOOOOOOOO", "BRUH Moment", "Ai lop du pac pac"],
-  // timePerLetter: 100,
-  timePerLetter: 100,
-}
+
 
 const button = document.getElementById("start-button");
 button.addEventListener("click", () => {
