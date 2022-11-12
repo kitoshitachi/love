@@ -1,13 +1,25 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: medium;
+
+  
+}
+:root{
+  --red: #c33;
+  --white: #fff;
+
+}
 body{
-  padding:100px 0;
-  background-color:#c33
+  background-color:#c33;
 }
 h1{
   font-size: xx-large;  
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
   text-align: center;
-  color: #fff;
+  color: var(--white);
 }
 
 #heart {
@@ -25,7 +37,7 @@ h1{
     top: 0;
     width: 50px;
     height: 80px;
-    background: #fff;
+    background: var(--white);
     -moz-border-radius: 50px 50px 0 0;
     border-radius: 50px 50px 0 0;
     -webkit-transform: rotate(-45deg);
@@ -52,6 +64,39 @@ h1{
          -o-transform-origin: 100% 100%;
             transform-origin :100% 100%;
 }
+
+#progress {
+  border-bottom: var(--white) solid 5px;
+  animation: progress 2s;
+}
+
+#start-button-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+#start-button {
+  padding: 1rem 2rem;
+  border: 1px solid var(--white);
+  background-color: var(--red);
+  color: var(--white);
+}
+
+@keyframes progress
+{
+  0%
+  {
+    width: 0%;
+  }
+  100%
+  {
+    width: 100%;
+  }
+}
+
 
 @keyframes heartbeat
 {
