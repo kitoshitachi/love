@@ -8,9 +8,15 @@ document.addEventListener("mousemove",function(e){
     var y = e.offsetY;
     heart.style.left = x + 'px';
     heart.style.top = y + 'px';
-    
+    var size = randomRange(20,100);
+    heart.style.width = size +'px';
+    heart.style.height = size +'px';
 
     body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    }, 1000)
 
 })
 const config = {

@@ -11,10 +11,11 @@
   <div id="start-button-container">
     <button id="start-button">Start</button>
   </div>
+  
   <div id="progress" hidden></div>
   <p id="quote" hidden></p>
-  
-  <div id="main-content" hidden>
+
+  <div id="main-content">
       <div id="heart">
         <audio controls autoplay loop hidden id="01">
           <source src="heart beat.mp3" type="audio/mpeg">
@@ -28,7 +29,6 @@
 <script>
   var audio = document.getElementById("01");
   audio.volume = 0.4;
-  stream.getTracks().forEach(function (track) { track.stop(); });
 </script>
 </html>
 

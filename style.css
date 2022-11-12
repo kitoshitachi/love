@@ -10,12 +10,14 @@
 :root{
   --red: #c33;
   --white: #fff;
-
+  --width_heart: 2rem;
+  --height_heart: 3rem;
 }
 body{
   background-color:#c33;
 }
 h1{
+  position: relative;
   font-size: xx-large;  
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
@@ -23,23 +25,27 @@ h1{
   color: var(--white);
 }
 
+#main-content{
+  position: relative;
+  padding-top: 4rem;
+}
 
 /* =============================== heart ==================================== */
 #heart {
     position: relative;
-    width: 100px;
-    height: 90px;
+    width: calc(2*var(--width_heart));
+    height: var(--height_heart);
     animation: heartbeat 1s infinite;
-    margin:0 auto;
+    margin: 0 auto;
 }
 #heart:before,
 #heart:after {
     position: absolute;
     content: "";
-    left: 50px; 
+    left: var(--width_heart); 
     top: 0;
-    width: 50px;
-    height: 80px;
+    width: var(--width_heart);
+    height: var(--height_heart);
     background: var(--white);
     -moz-border-radius: 50px 50px 0 0;
     border-radius: 50px 50px 0 0;
@@ -73,8 +79,8 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
   height: 100vh;
+  display: none;
 }
 
 #start-button {
@@ -99,6 +105,7 @@ h1{
 #progress {
   border-bottom: var(--white) solid 5px;
   animation: progress 2s;
+  margin-top: 10%;
 }
 
 /* ============ heart shape ==============*/
@@ -111,10 +118,12 @@ span{
   height: 100px;
   background-size: cover;
   animation: fly_heart 2s linear infinite;
+  z-index: -1;
 }
 
 /* ========================================= animation ==================================*/
-@keyframes progress
+
+@keyframes show
 {
   0%
   {
@@ -155,15 +164,17 @@ span{
   }
 }
 
-
 @keyframes fly_heart{
   0%
   {
     transform: translate(-50%, -50%);
+    opacity: 1;
+    filter: hue-rotate(0deg);
   }
   100%
   {
     transform: translate(-50%, -100%);
     opacity: 1;
+    filter: hue-rotate(360deg);
   }
 }
