@@ -81,6 +81,9 @@ function startHeart() {
   const mainContent = document.getElementById("main-content");
   const heart = document.getElementById("heart");
   fadeAnimation(true, 1000, 500, mainContent, null);
+  var background = document.getElementById("background");
+  background.style.backgroundImage = "url('./assets/last_background.jpg')";
+
 }
 
 function randomRange(min, max) {
