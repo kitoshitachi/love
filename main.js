@@ -3,7 +3,6 @@ import config from "./text.json" assert{type: 'json'}
 navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
 
   var audio = document.getElementById("01");
-  var audio = document.getElementById("01");
   audio.play();
   audio.volume = 1;
 
@@ -14,7 +13,6 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
 var body = document.querySelector("body");
 document.addEventListener("mousemove", function (e) {
   var heart = document.createElement("span");
-  var size = randomRange(40, 60);
   heart.style.width = 2 + 'rem';
   heart.style.height = 2 + 'rem';
   heart.style.left = e.clientX + 'px';
