@@ -12,9 +12,13 @@
   --white: #ffffff;
   --width_heart: 2rem;
   --height_heart: 3rem;
+  
 }
 body{
   background-color:var(--red);
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 h1,p{
@@ -30,9 +34,6 @@ h1,p{
 #main-content{
   position: relative;
   padding-top: 4rem;
-}
-.skip_mouse_event{
-  pointer-events: none;
 }
 /* =============================== heart ==================================== */
 #heart {
@@ -124,8 +125,8 @@ span{
   position:absolute;
   background: url(assets/heart.png);
   transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
+  width: var(--width_heart);
+  height: var(--height_heart);
   background-size: cover;
   animation: fly_heart 2s linear infinite;
   z-index: -1;
@@ -185,6 +186,6 @@ span{
   {
     transform: translate(-50%, -100%);
     opacity: 1;
-    filter: hue-rotate(360deg);
+    filter: hue-rotate(270deg);
   }
 }

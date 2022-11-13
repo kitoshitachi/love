@@ -1,23 +1,19 @@
 import config from "./text.json" assert{type: 'json'}
 
+var body = document.querySelector("body");
 document.addEventListener("mousemove",function(e){
-    var body = document.querySelector("body");
-    var heart = document.createElement("span");
-    // heart.style.position = "relative";
-    var x = e.offsetX;
-    var y = e.offsetY;
-    heart.style.left = x + 'px';
-    heart.style.top = y + 'px';
-    var size = randomRange(20,100);
-    heart.style.width = size +'px';
-    heart.style.height = size +'px';
+  var heart = document.createElement("span");
+  var size = randomRange(40,60);
+  heart.style.width = 2 +'rem';
+  heart.style.height = 2 +'rem';
+  heart.style.left = e.clientX + 'px';
+  heart.style.top = e.clientY + 'px';
 
-    body.appendChild(heart);
-
-    setTimeout(function(){
-        heart.remove();
-    }, 1000)
-
+  body.appendChild(heart);
+  setTimeout(function(){
+    heart.remove();
+  }, 500)
+  
 })
 
 
@@ -104,4 +100,8 @@ function fadeAnimation(isFadeIn, duration, delay, elem, afterShowHandler) {
       });  
     }
   }, delay);
+}
+
+function getDistance(x1, y1, x2, y2){
+  return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))
 }
