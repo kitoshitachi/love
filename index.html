@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,33 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <audio controls autoplay loop hidden id="01">
+    <source src="./assets/background.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
   <div id="start-button-container">
     <button id="start-button">Start</button>
+
   </div>
-  
+
   <div>
     <div id="container_progress">
       <div id="progress" hidden></div>
       <p id="quote" hidden></p>
     </div>
-    
+
     <div id="main-content" style="display: none">
-        <div id="heart">
-          <audio controls autoplay loop hidden id="01">
-            <source src="heart beat.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
+      <div id="heart"></div>
       <h1>I LOVE YOU</h1>
     </div>
   </div>
-  
-  <script type="module" src="main.js" ></script>
+
+  <script type="module" src="main.js"></script>
 </body>
 <script>
-  var audio = document.getElementById("01");
-  audio.volume = 0.4;
-</script>
-</html>
 
+</script>
+
+</html>

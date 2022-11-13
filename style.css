@@ -10,9 +10,8 @@
 :root{
   --red: #c23350;
   --white: #ffffff;
-  --width_heart: 2rem;
-  --height_heart: 3rem;
-  
+  --width_heart: 2.5rem;
+  --height_heart: 4rem;
 }
 body{
   background-color:var(--red);
@@ -51,7 +50,7 @@ h1,p{
     top: 0;
     width: var(--width_heart);
     height: var(--height_heart);
-    background: var(--white);
+    background: rgb(248, 0, 0);
     -moz-border-radius: 50px 50px 0 0;
     border-radius: 50px 50px 0 0;
     -webkit-transform: rotate(-45deg);

@@ -1,19 +1,30 @@
 import config from "./text.json" assert{type: 'json'}
 
+navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+
+  var audio = document.getElementById("01");
+  var audio = document.getElementById("01");
+  audio.play();
+  audio.volume = 1;
+
+  // stop microphone stream acquired by getUserMedia
+  stream.getTracks().forEach(function (track) { track.stop(); });
+});
+
 var body = document.querySelector("body");
-document.addEventListener("mousemove",function(e){
+document.addEventListener("mousemove", function (e) {
   var heart = document.createElement("span");
-  var size = randomRange(40,60);
-  heart.style.width = 2 +'rem';
-  heart.style.height = 2 +'rem';
+  var size = randomRange(40, 60);
+  heart.style.width = 2 + 'rem';
+  heart.style.height = 2 + 'rem';
   heart.style.left = e.clientX + 'px';
   heart.style.top = e.clientY + 'px';
 
   body.appendChild(heart);
-  setTimeout(function(){
+  setTimeout(function () {
     heart.remove();
-  }, 500)
-  
+  }, 900)
+
 })
 
 
@@ -34,24 +45,24 @@ function startProgress() {
   const progress = document.getElementById("progress");
   const quote = document.getElementById("quote");
   progress.removeAttribute("hidden");
-  progress.style ="width: 0;"
+  progress.style = "width: 0;"
   quote.removeAttribute("hidden");
 
   const sentences = config.sentences;
   let index = 0;
-  
+
   const getDuration = (sentence) => sentence.length * config.timePerLetter;
-  const loadPercentages = createLoadPercentages(sentences.length); 
+  const loadPercentages = createLoadPercentages(sentences.length);
   let percentage = loadPercentages[index];
 
   setTimeout(function showProgressChunk() {
     quote.innerText = sentences[index];
     progress.style = `width: ${percentage}%; transition: all ${getDuration(sentences[index])}ms ease`;
-    
+
     progress.addEventListener("transitionend", function next() {
       progress.removeEventListener("transitionend", next);
       index++;
-      
+
       if (index < sentences.length) {
         percentage += loadPercentages[index];
         setTimeout(showProgressChunk, randomRange(300, 1000), 0);
@@ -92,16 +103,13 @@ function fadeAnimation(isFadeIn, duration, delay, elem, afterShowHandler) {
   setTimeout(() => {
     elem.removeAttribute("hidden");
     elem.style = `animation: show ${duration}ms ease-out 0ms 1 ${isFadeIn ? "normal" : "reverse"} forwards;`;
-    
+
     if (afterShowHandler) {
       elem.addEventListener("animationend", function f() {
         elem.removeEventListener("animationend", f);
         afterShowHandler();
-      });  
+      });
     }
   }, delay);
 }
 
-function getDistance(x1, y1, x2, y2){
-  return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))
-}
