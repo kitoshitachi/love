@@ -4,34 +4,35 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
 
   var audio = document.getElementById("01");
   audio.play();
-  audio.volume = 1;
+  audio.volume = 0.35;
 
   // stop microphone stream acquired by getUserMedia
   stream.getTracks().forEach(function (track) { track.stop(); });
 });
 
-var body = document.querySelector("body");
+var body = document.getElementById("background");
+var Mouse_position = {x: 0, y: 0};
 document.addEventListener("mousemove", function (e) {
-  var heart = document.createElement("span");
-  heart.style.width = 2 + 'rem';
-  heart.style.height = 2 + 'rem';
-  heart.style.left = e.clientX + 'px';
-  heart.style.top = e.clientY + 'px';
-
-  body.appendChild(heart);
-  setTimeout(function () {
-    heart.remove();
-  }, 900)
-
+  var size = 2;
+  var space = 50;
+  if(getDistance(Mouse_position, e) > space*space){
+    Mouse_position.x = e.clientX;
+    Mouse_position.y = e.clientY;
+    var heart = document.createElement("span");
+    heart.style.width = size + 'rem';
+    heart.style.height = size + 'rem';
+    heart.style.left = e.clientX + 'px';
+    heart.style.top = e.clientY + 'px';
+    body.appendChild(heart);
+    setTimeout(function () {
+      heart.remove();
+    }, 1000)
+  }
 })
 
 
 const button = document.getElementById("start-button");
 button.addEventListener("click", () => {
-  var audio = document.getElementById("01");
-  audio.volume = 0.4;
-  audio.play();
-
   const buttonContainer = document.getElementById("start-button-container");
   fadeAnimation(false, 500, 0, buttonContainer, () => {
     buttonContainer.remove();
@@ -112,5 +113,11 @@ function fadeAnimation(isFadeIn, duration, delay, elem, afterShowHandler) {
       });
     }
   }, delay);
+}
+function getDistance(first_pos, second_pos){
+  var dx = first_pos.x - second_pos.clientX;
+  var dy = first_pos.y - second_pos.clientY;
+
+  return dx*dx + dy*dy;
 }
 

@@ -1,5 +1,5 @@
 /* =================================== setting ================================= */
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -7,87 +7,105 @@
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
 }
-:root{
+
+:root {
   --red: #c23350;
   --white: #ffffff;
   --width_heart: 2.5rem;
   --height_heart: 4rem;
 }
-body{
+
+body {
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
 
-h1,p{
+h1,
+p {
   position: relative;
-  font-size: 2rem ;  
+  font-size: 1.2rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
+  width: fit-content;
   text-align: center;
-  background-color: var(--white);
   color: var(--red);
+  background-color: var(--white);
+  margin: 0 auto;
 }
 
-#background{
+#background {
   position: absolute;
-  background-image : url('./assets/background.gif');
+  background-image: url('./assets/background.gif');
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: -2;
 }
-#main-content{
+
+#main-content {
   position: relative;
   width: 60%;
   margin: 0 auto;
 }
-/* =============================== heart ==================================== */
-#heart {
-    position: relative;
-    width: calc(2*var(--width_heart));
-    height: var(--height_heart);
-    animation: heartbeat 1s infinite;
-    margin: 0 auto;
-}
-#heart:before,
-#heart:after {
-    position: absolute;
-    content: "";
-    left: var(--width_heart); 
-    top: 0;
-    width: var(--width_heart);
-    height: var(--height_heart);
-    background: rgb(248, 0, 0);
-    -moz-border-radius: 50px 50px 0 0;
-    border-radius: 50px 50px 0 0;
-    -webkit-transform: rotate(-45deg);
-       -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-         -o-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transform-origin: 0 100%;
-       -moz-transform-origin: 0 100%;
-        -ms-transform-origin: 0 100%;
-         -o-transform-origin: 0 100%;
-            transform-origin: 0 100%;
-}
-#heart:after {
-    left: 0;
-    -webkit-transform: rotate(45deg);
-       -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-         -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transform-origin: 100% 100%;
-       -moz-transform-origin: 100% 100%;
-        -ms-transform-origin: 100% 100%;
-         -o-transform-origin: 100% 100%;
-            transform-origin :100% 100%;
+
+@media only screen and (min-width: 768px) {
+
+  h1,
+  p {
+    font-size: 1.7rem;
+  }
 }
 
-#start-button-container  {
+/* =============================== heart ==================================== */
+#heart {
+  position: relative;
+  width: calc(2*var(--width_heart));
+  height: var(--height_heart);
+  animation: heartbeat 1s infinite;
+  margin: 0 auto;
+}
+
+#heart:before,
+#heart:after {
+  position: absolute;
+  content: "";
+  left: var(--width_heart);
+  top: 0;
+  width: var(--width_heart);
+  height: var(--height_heart);
+  background: rgb(248, 0, 0);
+  -moz-border-radius: 50px 50px 0 0;
+  border-radius: 50px 50px 0 0;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+#heart:after {
+  left: 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+#start-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,98 +120,96 @@ h1,p{
   background-color: var(--white);
   color: var(--red);
   transition: 0.5s ease-in-out;
+  z-index: 1;
 }
-#start-button:hover{
+
+#start-button:hover {
   background-color: var(--red);
   color: var(--white);
 }
 
-#start-button:active{
+#start-button:active {
   padding: 0.5rem 1rem;
   background-color: var(--white);
   color: var(--red);
 }
+
 /*================================== bar progress ========================== */
-#container_progress{
+#container_progress {
   margin: 0 15%;
   
 }
+
 #progress {
   width: 100%;
   margin-top: 10%;
   border: double 4px transparent;
   border-radius: 80px;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(255, 58, 58),#ee1ddd);
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(255, 58, 58), #ee1ddd);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-} 
+}
 
 /* ============ heart shape ==============*/
-span{
-  position:absolute;
+span {
+  position: absolute;
   background: url(assets/heart.png);
   transform: translate(-50%, -50%);
   width: var(--width_heart);
   height: var(--height_heart);
   background-size: cover;
   animation: fly_heart 2s linear infinite;
-  z-index: -1;
 }
 
 /* ========================================= animation ==================================*/
 
-@keyframes show
-{
-  0%
-  {
+@keyframes show {
+  0% {
     opacity: 0%;
   }
-  100%
-  {
+
+  100% {
     opacity: 100%;
   }
 }
 
 
-@keyframes heartbeat
-{
-  0%
-  {
-    transform: scale( .75 );
+@keyframes heartbeat {
+  0% {
+    transform: scale(.75);
   }
-  20%
-  {
-    transform: scale( 1 );
+
+  20% {
+    transform: scale(1);
   }
-  40%
-  {
-    transform: scale( .75 );
+
+  40% {
+    transform: scale(.75);
   }
-  60%
-  {
-    transform: scale( 1 );
+
+  60% {
+    transform: scale(1);
   }
-  80%
-  {
-    transform: scale( .75 );
+
+  80% {
+    transform: scale(.75);
   }
-  100%
-  {
-    transform: scale( .75 );
+
+  100% {
+    transform: scale(.75);
   }
 }
 
-@keyframes fly_heart{
-  0%
-  {
+@keyframes fly_heart {
+  0% {
     transform: translate(-50%, -50%);
     opacity: 1;
     filter: hue-rotate(0deg);
   }
-  100%
-  {
+
+  100% {
     transform: translate(-50%, -100%);
     opacity: 1;
-    filter: hue-rotate(270deg);
+    filter: hue-rotate(720deg);
   }
 }
