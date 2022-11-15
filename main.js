@@ -1,14 +1,12 @@
 import config from "./text.json" assert{type: 'json'}
 
-navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
 
-  var audio = document.getElementById("01");
-  audio.play();
-  audio.volume = 0.35;
+// navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
 
-  // stop microphone stream acquired by getUserMedia
-  stream.getTracks().forEach(function (track) { track.stop(); });
-});
+
+//   // // stop microphone stream acquired by getUserMedia
+//   // stream.getTracks().forEach(function (track) { track.stop(); });
+// });
 
 var body = document.getElementById("background");
 var Mouse_position = {x: 0, y: 0};
@@ -36,11 +34,15 @@ button.addEventListener("click", () => {
   const buttonContainer = document.getElementById("start-button-container");
   fadeAnimation(false, 500, 0, buttonContainer, () => {
     buttonContainer.remove();
+    var audio = document.getElementById("01");
+    audio.play();
+    audio.volume = 0.35;
     startProgress();
   })
 })
 
 function startProgress() {
+  
   const progress = document.getElementById("progress");
   const quote = document.getElementById("quote");
   progress.removeAttribute("hidden");
