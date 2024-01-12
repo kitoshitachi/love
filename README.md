@@ -1,2 +1,2 @@
-# love.github.io
+# kitoshitachi.github.io/love
 love
